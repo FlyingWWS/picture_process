@@ -1,3 +1,3 @@
 function test(){
-	alert("²âÊÔ");
+	alert("æµ‹è¯•");
 }
