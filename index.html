@@ -7,5 +7,35 @@
 </head>
 <body>
     <input type="button" value="测试" onclick="test()">
+
+    <p>
+        <label>请选择一个图像文件：</label>
+        <input type="file" id="file_input" />
+    </p>
+    <div id="result"></div>
+    <script>
+        var result = document.getElementById("result");
+        var input = document.getElementById("file_input");
+
+        if(typeof FileReader==='undefined'){
+            result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+            input.setAttribute('disabled','disabled');
+        }else{
+            input.addEventListener('change',readFile,false);
+        }
+        function readFile(){
+            var file = this.files[0];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！");
+                return false;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e){
+                result.inne6rHTML = '<img src="'+this.result+'" alt=""/>'
+            }
+        }
+    </script>
+
 </body>
 </html>
