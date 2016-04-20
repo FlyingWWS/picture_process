@@ -3,39 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="stylesheets/my/pic_process.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="javascripts/pic_process.js"></script>
+
 </head>
 <body>
-    <input type="button" value="测试" onclick="test()">
-
     <p>
         <label>请选择一个图像文件：</label>
         <input type="file" id="file_input" />
     </p>
     <div id="result"></div>
-    <script>
-        var result = document.getElementById("result");
-        var input = document.getElementById("file_input");
-
-        if(typeof FileReader==='undefined'){
-            result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
-            input.setAttribute('disabled','disabled');
-        }else{
-            input.addEventListener('change',readFile,false);
-        }
-        function readFile(){
-            var file = this.files[0];
-            if(!/image\/\w+/.test(file.type)){
-                alert("文件必须为图片！");
-                return false;
-            }
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(e){
-                result.innerHTML = '<img src="'+this.result+'" alt=""/>'
-            }
-        }
-    </script>
-
+    <div id="link_img"></div>
+    <canvas id="myCanvas" width="500" height="500" >
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <input type="button" onclick="convertCanvasToImage()" id="canvas_to_image" value="canvas_to_image">
 </body>
 </html>

@@ -1,0 +1,24 @@
+#result{
+    width:500px;
+    height:500px;
+    border:1px solid #d3d3d3;
+    position:absolute;
+    top:100px;
+    left:20px;
+}
+#myCanvas{
+    border:1px solid #d3d3d3;
+    position:absolute;
+    top:100px;
+    left:620px;
+}
+#canvas_to_image{
+    position:absolute;
+    top:620px;
+    left:800px;
+}
+#download_link{
+    position:absolute;
+    top:620px;
+    left:250px;
+}
