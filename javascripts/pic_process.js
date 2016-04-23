@@ -7,7 +7,31 @@ window.onload = function(){
         input.addEventListener('change',readFile,false);
     }
 
+    var imgX = 0;
+    var imgY = 0;
+    var canvas = document.getElementById("myCanvas");
+    var context =canvas.getContext("2d");
+    canvas.onmousedown = function(event){
+        //alert("down");
+        var pos=windowToCanvas(canvas,event.clientX,event.clientY);
+        canvas.onmousemove = function(event){
+            var pos1=windowToCanvas(canvas,event.clientX,event.clientY);
+            var x=pos1.x-pos.x;
+            var y=pos1.y-pos.y;
+            pos=pos1;
+            imgX+=x;
+            imgY+=y;
+            //alert(imgX);
+            drawImage(imgX,imgY);
+        }
+        canvas.onmouseup=function(){
+            canvas.onmousemove=null;
+            canvas.onmouseup=null;
+            canvas.style.cursor="default";
+        }
+    }
 }
+//
 function readFile(){
     var result = document.getElementById("result");
     var file = this.files[0];
@@ -78,3 +102,23 @@ function oppositeColor(){
     }
     ctx.putImageData(imgData,0,0);
 }
+
+//
+function windowToCanvas(canvas,x,y) {
+    var bbox = canvas.getBoundingClientRect();
+    return {
+        x: x - bbox.left - (bbox.width - canvas.width) / 2,
+        y: y - bbox.top - (bbox.height - canvas.height) / 2
+    };
+}
+function drawImage(imgX,imgY){
+    var canvas = document.getElementById("myCanvas");
+    var context =canvas.getContext("2d");
+    var img=document.getElementById("pic");
+    //alert(img.width);
+    //alert(imgX);
+    context.clearRect(0,0,canvas.width,canvas.height);
+    context.drawImage(img,0,0,img.width,img.height,imgX,imgY,img.width,img.height);
+}
+
+

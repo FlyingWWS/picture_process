@@ -24,5 +24,47 @@
     <input type="text" value="100" id="alpha_text">
 <input type="button" onclick="setAlpha()" value="透明度">
 <input type="button" onclick="oppositeColor()" value="反色">
+    <input type="button" onclick="drawImage()">
+<script>
+
+   /* var canvas = document.getElementById("myCanvas");
+    var context =canvas.getContext("2d");
+    var imgX = 0;
+    var imgY = 0;
+    var img=document.getElementById("pic");
+    var imgScale=1;
+    function drawImage(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.drawImage(img,0,0,img.width,img.height,imgX,imgY,img.width*imgScale,img.height*imgScale);
+    }
+
+    canvas.onmousedown=function(event){
+        alert("11");
+        var pos=windowToCanvas(canvas,event.clientX,event.clientY);
+        canvas.onmousemove=function(event){
+            canvas.style.cursor="move";
+            var pos1=windowToCanvas(canvas,event.clientX,event.clientY);
+            var x=pos1.x-pos.x;
+            var y=pos1.y-pos.y;
+            pos=pos1;
+            imgX+=x;
+            imgY+=y;
+            drawImage();
+        }
+        canvas.onmouseup=function(){
+            canvas.onmousemove=null;
+            canvas.onmouseup=null;
+            canvas.style.cursor="default";
+        }
+    }
+
+    function windowToCanvas(canvas,x,y){
+        var bbox = canvas.getBoundingClientRect();
+        return {
+            x:x - bbox.left - (bbox.width - canvas.width) / 2,
+            y:y - bbox.top - (bbox.height - canvas.height) / 2
+        };
+    }*/
+</script>
 </body>
 </html>
