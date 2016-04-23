@@ -6,6 +6,7 @@ window.onload = function(){
     }else{
         input.addEventListener('change',readFile,false);
     }
+
 }
 function readFile(){
     var result = document.getElementById("result");
@@ -20,9 +21,9 @@ function readFile(){
         result.innerHTML = '<img src="'+this.result+'" id="pic" alt=""/>'
         var c=document.getElementById("myCanvas");
         var ctx=c.getContext("2d");
+        ctx.save();
         var img=document.getElementById("pic");
         ctx.drawImage(img,0,0);
-
     }
 }
 function convertCanvasToImage() {
@@ -33,5 +34,47 @@ function convertCanvasToImage() {
     var src = canvas.toDataURL("image/png");
     result.innerHTML = '<img src="'+src+'" id="pic" alt=""/>'
     link_img.innerHTML = "<a id='download_link' target='_blank' href='"+src+"'>下载</a>";
-    return image;
+    //return image;
+}
+
+/* --------从这里开始--------- */
+function save_my(){
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.save();
+}
+function restore_my(){
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.restore();
+}
+//透明度
+function setAlpha(){
+    var alpha = document.getElementById("alpha_text").value;
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var imgData=ctx.getImageData(0,0,c.width,c.height);
+    for (var i=0;i<imgData.data.length;i+=4)
+    {
+        imgData.data[i]=imgData.data[i];
+        imgData.data[i+1]=imgData.data[i+1];
+        imgData.data[i+2]=imgData.data[i+2];
+        imgData.data[i+3]=alpha;
+    }
+    ctx.putImageData(imgData,0,0);
+}
+//反色
+function oppositeColor(){
+    var alpha = document.getElementById("alpha_text").value;
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var imgData=ctx.getImageData(0,0,c.width,c.height);
+    for (var i=0;i<imgData.data.length;i+=4)
+    {
+        imgData.data[i]=255-imgData.data[i];
+        imgData.data[i+1]=255-imgData.data[i+1];
+        imgData.data[i+2]=255-imgData.data[i+2];
+        imgData.data[i+3]=alpha;
+    }
+    ctx.putImageData(imgData,0,0);
 }
