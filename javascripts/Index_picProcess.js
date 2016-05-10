@@ -1,3 +1,6 @@
+/**
+ * Created by Administrator on 2016/5/4.
+ */
 window.onload = function(){
     var input = document.getElementById("file_input");
     var result = document.getElementById("result");
@@ -45,11 +48,16 @@ function readFile(input,result,c,id){   //(添加file的input , 放图片的div 
         //c.height = img.height;
         ctx.drawImage(img,0,0);
         //if(img.width>img.height){
+        //    c.width=500;
+        //    c.height=img.height*500/img.width;
         //    ctx.drawImage(img,0,0,img.width,img.height,0,0,500,img.height*500/img.width);
         //}
         //else{
+        //    c.height=500;
+        //    c.width=img.width*500/img.height;
         //    ctx.drawImage(img,0,0,img.width,img.height,0,0,img.width*500/img.height,500);
         //}
+        //convertCanvasToImage();
         //var c_two=document.getElementById("myCanvas_two");
         //var ctx_two=c_two.getContext("2d");
         //ctx_two.drawImage(img,0,0);
@@ -57,12 +65,13 @@ function readFile(input,result,c,id){   //(添加file的input , 放图片的div 
 }
 function convertCanvasToImage() {
     var link_img = document.getElementById("link_img");
+    var result = document.getElementById("result");
     var canvas = document.getElementById("myCanvas");
 //            var image = new Image();
 //            image.src = canvas.toDataURL("image/png");
     var src = canvas.toDataURL("image/png");
     result.innerHTML = '<img src="'+src+'" id="pic" alt=""/>';
-    link_img.innerHTML = "<a id='download_link' target='_blank' href='"+src+"'>下载</a>";
+    link_img.innerHTML = "<a target='_blank' href='"+src+"'>下载</a>";
     document.getElementById("myCanvas_two").style.display = "none"; //转成图片后去掉第二个canvas
     //return image;
 }
@@ -175,6 +184,7 @@ function mixup(){
     result_two.innerHTML = '<img src="'+src+'" id="pic_two" alt=""/>';
     var pic_two = document.getElementById("pic_two");
     ctx.drawImage(pic_two,0,0);
+    convertCanvasToImage();
 }
 
 //灰度化
@@ -197,8 +207,12 @@ function grey(){
 function rotate(){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    var img = document.getElementById("result");
-    ctx.translate(0,0);
-    ctx.rotate(20*Math.PI/180);
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.translate(500,0);
+    ctx.rotate(90*Math.PI/180);
+    var img=document.getElementById("pic");
     ctx.drawImage(img,0,0);
+    convertCanvasToImage(); //保存canvas为图片
+    ctx.translate(0,500);
+    ctx.rotate(-90*Math.PI/180);
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index_layout</title>
+    <link href="stylesheets/my/Index_picProcess.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/my/Index_layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="javascripts/Index_picProcess.js"></script>
+    <script type="text/javascript" src="javascripts/Index_layout.js"></script>
+</head>
+<body>
+<div class="layout_container">
+    <div class="layout_navigation">
+        基础图:<input type="file" id="file_input" /><br>
+        添加图:<input type="file" id="file_input_two" />
+        <div id="link_img"></div>
+        <input type="button" onclick="convertCanvasToImage()" value="保存成图片">
+        <input type="button" onclick="rotate()" value="顺旋转">
+        <input type="button" onclick="mixup()" value="合成">
+    </div>
+    <div class="layout_operate">
+        <ul>
+            <li>
+                <dl>
+                    <dt><a>基础调整</a></dt>
+                    <dd>
+                        <a>透明度</a><br>
+                        <input type="text" value="100" id="alpha_text">
+                        <input type="button" onclick="setAlpha()" value="透明度">
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="img_container">
+        <div id="result"></div>
+
+        <canvas id="myCanvas" width="500" height="500" >
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <div id="result_two">div</div>
+        <canvas id="myCanvas_two" width="500" height="500">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </div>
+</div>
+</body>
+</html>
