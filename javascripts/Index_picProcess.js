@@ -203,6 +203,30 @@ function grey(){
     }
     ctx.putImageData(imgData,0,0)
 }
+//二值化
+function binary(){
+    var alpha = document.getElementById("alpha_text").value;
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var imgData=ctx.getImageData(0,0,c.width,c.height);
+    for (var i=0;i<imgData.data.length;i+=4)
+    {
+        var sum = (imgData.data[i]+imgData.data[i+1]+imgData.data[i+2])/3;
+        if(sum>100){
+            imgData.data[i]=255;
+            imgData.data[i+1]=255;
+            imgData.data[i+2]=255;
+            imgData.data[i+3]=alpha;
+        }
+        else{
+            imgData.data[i]=0;
+            imgData.data[i+1]=0;
+            imgData.data[i+2]=0;
+            imgData.data[i+3]=alpha;
+        }
+    }
+    ctx.putImageData(imgData,0,0)
+}
 //旋转
 function rotate(){
     var c = document.getElementById("myCanvas");
