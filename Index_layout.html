@@ -30,16 +30,15 @@
                 <dl>
                     <dt><a>基础调整</a></dt>
                     <dd>
-                        <a>透明度</a><br>
-                        <input type="text" value="100" id="alpha_text">
-                        <input type="button" onclick="setAlpha()" value="透明度">
+                        <!--透明度-->
+                        <a>透明度</a><span id="alphaValue">100</span>
+                        <div class="progressBar" onclick="progressBar_move(event)">
+                            <div class="progressPoint" id="progressPoint"></div>
+                        </div>
+                        <br><br>
                         <input type="button" onclick="binary()" value="二值化">
                         <input type="button" onclick="grey()" value="灰度">
                         <input type="button" onclick="oppositeColor()" value="反色">
-                        <br><br>
-                        <div class="progressBar" onclick="progressBar_move(event)">
-                            <div class="progressPoint"></div>
-                        </div>
                     </dd>
                 </dl>
             </li>

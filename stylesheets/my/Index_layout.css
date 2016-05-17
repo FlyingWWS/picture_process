@@ -34,6 +34,10 @@
     line-height: 40px;
     color: #5187b9;
 }
+.layout_operate a{
+    font-family: "Microsoft YaHei";
+    font-size:16px;
+}
 .layout_btn_contain a:hover{
     color:black;
     cursor: pointer;
@@ -60,6 +64,7 @@
     font-size:16px;
     padding-left: 20px;
 }
+
 .layout_operate ul li dl dt a:hover{
     background: #eaeaea;
     cursor: pointer;
@@ -97,4 +102,5 @@
     position: absolute;
     top:85px;
     left:16%;
+    overflow: hidden;
 }

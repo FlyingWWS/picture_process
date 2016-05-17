@@ -6,9 +6,10 @@ $(document).ready(function(){
         $(".layout_operate ul li dl dd").slideToggle();
     });
 });
-
+//透明度的
 function progressBar_move(event){
     var x = event.offsetX;
-    $(".progressPoint").css("left",x);
+    $("#progressPoint").css("left",x);
+    $("#alphaValue").text(x+50);
+    setAlpha();
 }
-

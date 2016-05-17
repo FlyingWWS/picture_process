@@ -77,19 +77,10 @@ function convertCanvasToImage() {
 }
 
 /* --------从这里开始--------- */
-function save_my(){
-    var c=document.getElementById("myCanvas");
-    var ctx=c.getContext("2d");
-    ctx.save();
-}
-function restore_my(){
-    var c=document.getElementById("myCanvas");
-    var ctx=c.getContext("2d");
-    ctx.restore();
-}
+var alpha=255;
 //透明度
 function setAlpha(){
-    var alpha = document.getElementById("alpha_text").value;
+    alpha = $("#alphaValue").text();
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     var imgData=ctx.getImageData(0,0,c.width,c.height);
@@ -104,7 +95,6 @@ function setAlpha(){
 }
 //反色
 function oppositeColor(){
-    var alpha = document.getElementById("alpha_text").value;
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     var imgData=ctx.getImageData(0,0,c.width,c.height);
@@ -189,7 +179,6 @@ function mixup(){
 
 //灰度化
 function grey(){
-    var alpha = document.getElementById("alpha_text").value;
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     var imgData=ctx.getImageData(0,0,c.width,c.height);
@@ -205,7 +194,6 @@ function grey(){
 }
 //二值化
 function binary(){
-    var alpha = document.getElementById("alpha_text").value;
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
     var imgData=ctx.getImageData(0,0,c.width,c.height);
