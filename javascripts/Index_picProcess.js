@@ -57,6 +57,7 @@ function readFile(input,result,c,id){   //(添加file的input , 放图片的div 
         //    c.width=img.width*500/img.height;
         //    ctx.drawImage(img,0,0,img.width,img.height,0,0,img.width*500/img.height,500);
         //}
+
         //convertCanvasToImage();
         //var c_two=document.getElementById("myCanvas_two");
         //var ctx_two=c_two.getContext("2d");
@@ -215,12 +216,32 @@ function binary(){
     }
     ctx.putImageData(imgData,0,0)
 }
+//模糊化
+function fuzzy(){
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var imgData=ctx.getImageData(0,0,c.width,c.height);
+    for (var i=4;i<imgData.data.length-4;i+=4)
+    {
+        var r = (imgData.data[i-4]+imgData.data[i]+imgData.data[i+4])/3;
+        var g = (imgData.data[i-3]+imgData.data[i+1]+imgData.data[i+5])/3;
+        var b = (imgData.data[i-2]+imgData.data[i+2]+imgData.data[i+6])/3;
+        imgData.data[i]=r;
+        imgData.data[i+1]=g;
+        imgData.data[i+2]=b;
+        imgData.data[i+3]=alpha;
+    }
+    ctx.putImageData(imgData,0,0)
+}
 //旋转
 function rotate(){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
+    //var flag = c.width;
+    //c.width = c.height;
+    //c.height = flag;
     ctx.clearRect(0,0,c.width,c.height);
-    ctx.translate(500,0);
+    ctx.translate(c.width,0);
     ctx.rotate(90*Math.PI/180);
     var img=document.getElementById("pic");
     ctx.drawImage(img,0,0);

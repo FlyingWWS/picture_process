@@ -16,12 +16,16 @@
             <img src="img/logo.png">
         </div>
         <div class="layout_btn_contain">
-            基础图:<input type="file" id="file_input" />
-            添加图:<input type="file" id="file_input_two" />
-            <a onclick="rotate()">旋转</a>
-            <a onclick="mixup()">合成</a>
-            <a onclick="convertCanvasToImage()">保存</a>
-            <a id="link_img"></a>
+            <a class="btn_cover">选择图片</a>
+            <input type="file" id="file_input" class="file_input"/>
+            <a class="btn_coverTwo">添加图片</a>
+            <input type="file" id="file_input_two" class="file_input_two" />
+            <div class="btn_contain">
+                <a onclick="rotate()">旋转</a>
+                <a onclick="mixup()">合成</a>
+                <a onclick="convertCanvasToImage()">保存</a>
+                <a id="link_img"></a>
+            </div>
         </div>
     </div>
     <div class="layout_operate">
@@ -30,15 +34,29 @@
                 <dl>
                     <dt><a>基础调整</a></dt>
                     <dd>
+                        <div class="img_btn_box">
+                            <a>灰度化</a>
+                            <img src="img/btn_gray.png" title="灰度化" onclick="grey()">
+                        </div>
+                        <div class="img_btn_box">
+                            <a>二值化</a>
+                            <img src="img/btn_binary.png" title="二值化" onclick="binary()">
+                        </div>
+                        <div class="img_btn_box">
+                            <a>模糊化</a>
+                            <img src="img/btn_fuzzy.png" title="模糊化" onclick="fuzzy()">
+                        </div>
+                        <div class="img_btn_box">
+                            <a>反色</a>
+                            <img src="img/btn_opposite.png" title="反色" onclick="oppositeColor()">
+                        </div>
+                    </dd>
+                    <dd>
                         <!--透明度-->
-                        <a>透明度</a><span id="alphaValue">100</span>
+                        &nbsp;&nbsp;<a>透明度:</a>&nbsp;&nbsp;<span id="alphaValue">100</span>
                         <div class="progressBar" onclick="progressBar_move(event)">
                             <div class="progressPoint" id="progressPoint"></div>
                         </div>
-                        <br><br>
-                        <input type="button" onclick="binary()" value="二值化">
-                        <input type="button" onclick="grey()" value="灰度">
-                        <input type="button" onclick="oppositeColor()" value="反色">
                     </dd>
                 </dl>
             </li>

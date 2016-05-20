@@ -28,7 +28,58 @@
     background: white;
     opacity:0.8;
 }
-.layout_btn_contain a{
+.btn_cover{
+    width:80px;
+    height:40px;
+    background: #272727;
+    color:white;
+    font-family: "Microsoft YaHei";
+    font-size:16px;
+    line-height: 40px;
+    padding-left: 20px;
+    position:absolute;
+    top:0px;
+    left:40px;
+    z-index:-1;
+}
+.file_input{
+    width:100px;
+    height:40px;
+    position:absolute;
+    top:0px;
+    left:40px;
+    opacity: 0;
+}
+.btn_coverTwo{
+    width:80px;
+    height:40px;
+    background: #5187b9;
+    color:white;
+    font-family: "Microsoft YaHei";
+    font-size:16px;
+    line-height: 40px;
+    padding-left: 20px;
+    position:absolute;
+    top:0px;
+    left:140px;
+    z-index:-1;
+}
+.file_input_two{
+    width:100px;
+    height:40px;
+    position:absolute;
+    top:0px;
+    left:140px;
+    opacity:0;
+}
+.btn_contain{
+    width:auto;
+    height:40px;
+    position:absolute;
+    left:300px;
+    top:0px;
+}
+.btn_contain a{
     font-family: "Microsoft YaHei";
     font-size: 16px;
     line-height: 40px;
@@ -51,6 +102,34 @@
     position:absolute;
     top:85px;
     left:5px;
+}
+.img_btn_box{
+    width:64px;
+    height:64px;
+    border-radius:10px;
+    overflow: hidden;
+    float:left;
+    margin-left: 5px;
+    margin-top: 5px;
+    border:1px solid #b48497;
+}
+.img_btn_box a{
+    width:64px;
+    height:24px;
+    text-align: center;
+    color:white;
+    background: #262626;
+    opacity:0.8;
+    position:absolute;
+    margin-top:40px;
+    border-radius:10px;
+}
+.img_btn_box img{
+    width:64px;
+    height:64px;
+}
+.img_btn_box img:hover{
+    cursor:pointer;
 }
 .layout_operate ul li dl dt{
     width:100%;
@@ -83,14 +162,19 @@
 }
 .progressBar{
     width:200px;
-    height:5px;
+    height:8px;
     background: #d8d8d8;
     border-radius: 3px;
+    position:relative;
+    left:10px;
+}
+.progressBar:hover{
+    cursor:pointer;
 }
 .progressPoint{
     width:10px;
-    height:5px;
-    border-radius: 5px;
+    height:8px;
+    border-radius: 8px;
     background: red;
     position: relative;
     left:80px;
