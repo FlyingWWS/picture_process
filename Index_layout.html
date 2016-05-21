@@ -22,8 +22,9 @@
             <input type="file" id="file_input_two" class="file_input_two" />
             <div class="btn_contain">
                 <a onclick="rotate()">旋转</a>
-                <a onclick="mixup()">合成</a>
-                <a onclick="convertCanvasToImage()">保存</a>
+                <a onclick="showCanvas_three()">涂鸦</a>
+                <a onclick="mixup()">保存</a>
+                <!--<a onclick="convertCanvasToImage()">保存</a>-->
                 <a id="link_img"></a>
             </div>
         </div>
@@ -71,7 +72,35 @@
         <canvas id="myCanvas_two" width="500" height="500">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
+        <!--涂鸦-->
+        <div id="result_three">div_three</div>
+        <canvas id="myCanvas_three" width="500" height="500" style="border:2px solid #6699cc">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <div class="control-ops" id="control-ops">
+            <button type="button" class="btn-primary" onclick="javascript:clearArea();return false;">清空画板</button>
+            <a>画笔宽度：</a><select id="selWidth">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="9" selected="selected">9</option>
+            <option value="11">11</option>
+            </select>
+                <a>画笔颜色：</a><select id="selColor">
+                <option value="black">黑色</option>
+                <option value="blue" selected="selected">蓝色</option>
+                <option value="red">红色</option>
+                <option value="green">绿色</option>
+                <option value="yellow">黄色</option>
+                <option value="gray">灰色</option>
+            </select>
+        </div>
+        <!--涂鸦-->
     </div>
 </div>
+<script>
+
+</script>
 </body>
 </html>

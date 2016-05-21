@@ -188,3 +188,32 @@
     left:16%;
     overflow: hidden;
 }
+
+.control-ops{
+    width:500px;
+    height:40px;
+    /*background: red;*/
+    line-height: 40px;
+    position:absolute;
+    left:300px;
+    display: none;
+}
+.btn-primary{
+    width:100px;
+    height:40px;
+    background: #5187b9;
+    opacity:0.8;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    color:white;
+    border-radius: 5px;
+    border:0px solid;
+}
+.btn-primary:hover{
+    opacity:1;
+    cursor:pointer;
+}
+.control-ops a{
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
