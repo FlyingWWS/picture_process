@@ -158,11 +158,16 @@ function mixup(){
     var ctx =c.getContext("2d");
 
     var c_two=document.getElementById("myCanvas_two");
+    var ctx_two =c_two.getContext("2d");
     var result_two = document.getElementById("result_two");
     var src = c_two.toDataURL("image/png");
     result_two.innerHTML = '<img src="'+src+'" id="pic_two" alt=""/>';
     var pic_two = document.getElementById("pic_two");
     ctx.drawImage(pic_two,0,0);
+    pic_two="";
+    $("#pic_two").src="";
+    ctx_two.clearRect(0,0,ctx_two.width,ctx_two.height);
+    result_two.innerHTML = "";//保存后清空第二个canvas；
 
     var c_three = document.getElementById("myCanvas_three");
     var result_three = document.getElementById("result_three");
@@ -171,6 +176,7 @@ function mixup(){
     var pic_three = document.getElementById("pic_three");
     ctx.drawImage(pic_three,0,0);
     convertCanvasToImage();
+
 }
 //保存成图片
 function convertCanvasToImage() {
