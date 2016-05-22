@@ -22,7 +22,10 @@
             <input type="file" id="file_input_two" class="file_input_two" />
             <div class="btn_contain" id="btn_contain">
                 <a onclick="showCanvas_three()">涂鸦</a>
-                <a onclick="rotate()">旋转</a>
+                <a id="cut_show">显示裁剪</a>
+                <a id="cut_btn">确定裁剪</a>
+                <a id="cut_hide">隐藏裁剪</a>
+                <a onclick="restore()">撤销</a>
                 <a onclick="mixup()">保存</a>
                 <!--<a onclick="convertCanvasToImage()">保存</a>-->
                 <span id="link_img"></span>
@@ -58,6 +61,14 @@
                         <div class="progressBar" onclick="progressBar_move(event)">
                             <div class="progressPoint" id="progressPoint"></div>
                         </div>
+                        <img src="img/clockwise.png" title="顺时针" class="img_btn" onclick="rotate_clockwise()">
+                        <img src="img/auticlockwise.png" title="逆时针" class="img_btn" onclick="rotate_anticlockwise()">
+                        <img src="img/flip_h.png" title="水平翻转" class="img_btn" onclick="flip_horizontal()">
+                        <img src="img/flip_v.png" title="垂直翻转" class="img_btn" onclick="flip_vertical()">
+                        <!--<a onclick="rotate_clockwise()">顺旋转</a>-->
+                        <!--<a onclick="rotate_anticlockwise()">逆旋转</a>-->
+                        <!--<a onclick="flip_horizontal()">水平翻转</a>-->
+                        <!--<a onclick="flip_vertical()">垂直翻转</a>-->
                     </dd>
                 </dl>
             </li>
@@ -68,13 +79,16 @@
         <canvas id="myCanvas" width="500" height="500" >
             Your browser does not support the HTML5 canvas tag.
         </canvas>
+        <div class="cut_box" id="cut_box">
+            <div class="cut_rect" id="cut_rect">rect</div>
+        </div>
         <div id="result_two">div</div>  <!--隐藏了-->
         <canvas id="myCanvas_two" width="500" height="500">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
         <!--涂鸦-->
         <div id="result_three">div_three</div>
-        <canvas id="myCanvas_three" width="500" height="500" style="border:2px solid #6699cc">
+        <canvas id="myCanvas_three" width="500" height="500">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
         <div class="control-ops" id="control-ops">

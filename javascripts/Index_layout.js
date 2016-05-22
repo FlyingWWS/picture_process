@@ -15,10 +15,7 @@ function progressBar_move(event){
 }
 
 /*涂鸦-------下面-------*/
-function showCanvas_three(){
-    $("#myCanvas_three").slideToggle();
-    $("#control-ops").toggle();
-}
+
 var mousePressed = false;
 var lastX, lastY;
 var ctx;
@@ -63,3 +60,52 @@ function clearArea() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 /*涂鸦---------上面-----------*/
+
+/*移动---------下面-----*/
+function getObj(obj_id){
+    return document.getElementById(obj_id);
+}
+function createObject(){
+    return{
+        obj : null, left : 0, top : 0,
+        oldX : 0, oldY : 0, isMouseDown : false,
+        init : function(obj){
+            this.obj = obj;
+            var that = this;
+            this.obj.onmousedown = function(){
+                that.isMouseDown =true;
+                that.oldX = event.clientX;
+                that.oldY = event.clientY;
+                if(this.currentStyle){
+                    that.left = parseInt(this.currentStyle.left);
+                    that.top  = parseInt(this.currentStyle.top);
+                }
+                else {
+                    var divStyle = document.defaultView.getComputedStyle(this, null);
+                    that.left = parseInt(divStyle.left);
+                    //alert(that.left+":"+divStyle.left);
+                    that.top = parseInt(divStyle.top);
+                }
+            };
+            this.obj.onmousemove = function(){
+                that.move(event);
+            };
+            this.obj.onmouseup = function(){
+                that.isMouseDown = false;
+            };
+        },
+        move : function(evt){
+            if (this.isMouseDown) {
+                var dx = parseInt(evt.clientX - this.oldX);
+                var dy = parseInt(evt.clientY - this.oldY);
+                this.obj.style.left = (this.left + dx) + 'px';
+                this.obj.style.top = (this.top + dy) + 'px';
+            }
+        }
+    }
+}
+$(document).ready(function(){
+    var obj = createObject();
+    obj.init(getObj("cut_rect"));
+})
+/*移动---------上面------------*/
