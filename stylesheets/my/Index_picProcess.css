@@ -29,7 +29,7 @@
     top:40px;
     left:800px;
     overflow: hidden;
-    /*display:none;*/
+    display:none;
 }
 #myCanvas_three{
     border:1px solid #d3d3d3;

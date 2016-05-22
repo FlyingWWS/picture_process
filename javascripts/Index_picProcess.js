@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/5/4.
  */
+var status;//合成那边状态  0能合成  1不能合成
 window.onload = function(){
     var input = document.getElementById("file_input");
     var result = document.getElementById("result");
@@ -22,11 +23,12 @@ window.onload = function(){
         input_two.addEventListener('change',function(){
             readFile(input_two,result_two,c_two,"pic_two");
             document.getElementById("myCanvas_two").style.display = "inline";
+            status = 0;
         },false);
     }
     //移动 缩放
     var canvas = document.getElementById("myCanvas");
-    img_move_scale(canvas,"pic");          //(画布 , div中图片的id)
+    //img_move_scale(canvas,"pic");          //(画布 , div中图片的id)
     var canvas_two = document.getElementById("myCanvas_two");
     img_move_scale(canvas_two,"pic_two");
 }
@@ -157,18 +159,17 @@ function mixup(){
     var c = document.getElementById("myCanvas");
     var ctx =c.getContext("2d");
 
-    var c_two=document.getElementById("myCanvas_two");
-    var ctx_two =c_two.getContext("2d");
-    var result_two = document.getElementById("result_two");
-    var src = c_two.toDataURL("image/png");
-    result_two.innerHTML = '<img src="'+src+'" id="pic_two" alt=""/>';
-    var pic_two = document.getElementById("pic_two");
-    ctx.drawImage(pic_two,0,0);
-    pic_two="";
-    $("#pic_two").src="";
-    ctx_two.clearRect(0,0,ctx_two.width,ctx_two.height);
-    result_two.innerHTML = "";//保存后清空第二个canvas；
-
+    //alert(status);
+    if(status==0){
+        var c_two=document.getElementById("myCanvas_two");
+        var result_two = document.getElementById("result_two");
+        var src = c_two.toDataURL("image/png");
+        result_two.innerHTML = '<img src="'+src+'" id="pic_two" alt=""/>';
+        var pic_two = document.getElementById("pic_two");
+        ctx.drawImage(pic_two,0,0);
+        status=1;
+    }
+    //alert(status);
     var c_three = document.getElementById("myCanvas_three");
     var result_three = document.getElementById("result_three");
     var src_three = c_three.toDataURL("image/png");
@@ -180,14 +181,13 @@ function mixup(){
 }
 //保存成图片
 function convertCanvasToImage() {
-    var link_img = document.getElementById("link_img");
     var result = document.getElementById("result");
     var canvas = document.getElementById("myCanvas");
 //            var image = new Image();
 //            image.src = canvas.toDataURL("image/png");
     var src = canvas.toDataURL("image/png");
     result.innerHTML = '<img src="'+src+'" id="pic" alt=""/>';
-    link_img.innerHTML = "<a target='_blank' href='"+src+"'>下载</a>";
+    $("#link_img").html("<a target='_blank' href='"+src+"'>下载</a>") ;
     document.getElementById("myCanvas_two").style.display = "none"; //转成图片后去掉第二个canvas
     //return image;
 }
