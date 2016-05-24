@@ -406,7 +406,7 @@ $(document).ready(function(){
         c_h = rect_height;
         ctx.putImageData(imgData,0,0);
         $("#cut_box").hide();
-        convertCanvasToImage();//保存成图片
+        $("#cut_confirm").hide();
     })
 })
 $(document).ready(function(){
@@ -415,13 +415,24 @@ $(document).ready(function(){
         document.getElementById("cut_box").style.height = c_h+"px";
         document.getElementById("cut_rect").style.width = c_w/2+"px";
         document.getElementById("cut_rect").style.height = c_h/2+"px";
-        //定位
+        //默认定位
         document.getElementById("cut_rect").style.left = 0+"px";
         document.getElementById("cut_rect").style.top=0+"px";
         $("#cut_box").show();
+        $("#cut_confirm").show();
     })
     $("#cut_hide").click(function(){
         $("#cut_box").hide();
+        $("#cut_confirm").hide();
     })
 })
+$(document).ready(function(){
+    $("#rect_set").click(function(){
+        var rect_width = $("#rect_width").val();
+        var rect_height = $("#rect_height").val()
+        document.getElementById("cut_rect").style.width = rect_width+"px";
+        document.getElementById("cut_rect").style.height = rect_height+"px";
+    })
+})
+
 

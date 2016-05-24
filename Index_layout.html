@@ -22,9 +22,7 @@
             <input type="file" id="file_input_two" class="file_input_two" />
             <div class="btn_contain" id="btn_contain">
                 <a onclick="showCanvas_three()">涂鸦</a>
-                <a id="cut_show">显示裁剪</a>
-                <a id="cut_btn">确定裁剪</a>
-                <a id="cut_hide">隐藏裁剪</a>
+                <a id="cut_show">裁剪</a>
                 <a onclick="restore()">撤销</a>
                 <a onclick="mixup()">保存</a>
                 <!--<a onclick="convertCanvasToImage()">保存</a>-->
@@ -57,7 +55,7 @@
                     </dd>
                     <dd>
                         <!--透明度-->
-                        &nbsp;&nbsp;<a>透明度:</a>&nbsp;&nbsp;<span id="alphaValue">100</span>
+                        &nbsp;&nbsp;<a>透明度:</a>&nbsp;&nbsp;<span id="alphaValue">255</span>
                         <div class="progressBar" onclick="progressBar_move(event)">
                             <div class="progressPoint" id="progressPoint"></div>
                         </div>
@@ -80,7 +78,18 @@
             Your browser does not support the HTML5 canvas tag.
         </canvas>
         <div class="cut_box" id="cut_box">
-            <div class="cut_rect" id="cut_rect">rect</div>
+            <div class="cut_rect" id="cut_rect">rect
+                <div class="cut_point"></div>
+            </div>
+        </div>
+        <div class="cut_confirm" id="cut_confirm">
+            <a id="cut_btn">确定裁剪</a>
+            <a id="cut_hide">取消裁剪</a>
+            <span>宽度：</span><input type="text" value="100" id="rect_width" style="width:50px;height:40px;">
+            <span>高度：</span><input type="text" value="100" id="rect_height" style="width:50px;height:40px;">
+            <a id="rect_set">设置宽高</a>
+            <span>left：</span><input type="text" value="0" id="rect_left" style="width:50px;height:40px;">
+            <span>top&nbsp;：</span><input type="text" value="0" id="rect_top" style="width:50px;height:40px;">
         </div>
         <div id="result_two">div</div>  <!--隐藏了-->
         <canvas id="myCanvas_two" width="500" height="500">

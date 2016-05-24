@@ -100,6 +100,9 @@ function createObject(){
                 var dy = parseInt(evt.clientY - this.oldY);
                 this.obj.style.left = (this.left + dx) + 'px';
                 this.obj.style.top = (this.top + dy) + 'px';
+
+                document.getElementById("rect_left").value =this.obj.style.left;
+                document.getElementById("rect_top").value =this.obj.style.left;
             }
         }
     }

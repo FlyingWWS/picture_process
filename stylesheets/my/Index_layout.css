@@ -185,7 +185,7 @@
     border-radius: 8px;
     background: red;
     position: relative;
-    left:80px;
+    left:190px;
 }
 .img_container{
     width:83%;
@@ -248,10 +248,44 @@
 .cut_rect{
     width:100px;
     height:100px;
-    border:5px solid;
+    border:5px solid #868c8c;
     background: #dbb6c9;
     opacity:0.6;
     position:relative;
     top:0px;
     left:0px;
+}
+.cut_point{
+    width:20px;
+    height:20px;
+    background: red;
+    position:absolute;
+    right:-10px;
+    bottom:-10px;
+    border-radius: 20px;
+}
+.cut_confirm{
+    width:100px;
+    height:auto;
+    /*background:red;*/
+    position:absolute;
+    left:200px;
+    top:40px;
+    display:none;
+}
+.cut_confirm a{
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    line-height: 40px;
+    width: 100px;
+    height:40px;
+    display: block;
+    margin-bottom: 10px;
+    background: #508eea;
+    text-align: center;
+    color: white;
+}
+.cut_confirm a:hover{
+    cursor:pointer;
+
 }
