@@ -30,8 +30,8 @@ window.onload = function(){
         },false);
     }
     //移动 缩放
-    var canvas = document.getElementById("myCanvas")
-    img_scale(canvas,"pic");       //缩放
+    //var canvas = document.getElementById("myCanvas")
+    //img_scale(canvas,"pic");       //缩放
     //img_move_scale(canvas,"pic");          //(画布 , div中图片的id)   移动缩放
     var canvas_two = document.getElementById("myCanvas_two");
     img_move_scale(canvas_two,"pic_two");   //移动缩放 (画布 , div中图片的id)
